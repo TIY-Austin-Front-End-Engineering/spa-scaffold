@@ -15,8 +15,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - Run `npm install`
 
 ## Use
-- `npm start` to start the dev server and watch for changes
-- `npm deploy` to push the `dist/` to gh-pages
+- `npm install` will scaffold your project AND start the dev server
+- `npm start` will start the dev server and watch for changes
+- `npm deploy` will push the content of `dist/` to gh-pages
 
 ## Dependencies
 - `sass` [install guide here](http://sass-lang.com/install)
