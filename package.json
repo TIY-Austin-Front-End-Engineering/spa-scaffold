@@ -18,7 +18,7 @@
     "watch-html": "onchange 'app/index.html' -- npm run build-html",
     "watch-sass": "onchange 'app/scss/**/*.scss' -- npm run build-css",
     "watch-scripts": "watchify app/scripts/entry.js -d -v --outfile dist/main.js",
-    "watch-assets": "onchange 'app/assets/**/*.js' -- npm run build-assets",
+    "watch-assets": "onchange 'app/assets/**/*.*' -- npm run build-assets",
     "watch": "parallelshell 'npm run watch-html' 'npm run watch-assets' 'npm run watch-sass' 'npm run watch-scripts'",
     "dev-server-start": "http-server ./dist",
     "dev-server-watch": "npm run dev-server-start && onchange 'dist/**/*.*' -- npm run dev-server-start",
