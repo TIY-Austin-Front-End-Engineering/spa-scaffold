@@ -26,7 +26,7 @@
     "prebuild": "if [ ! -d app ]; then mkdir app; fi && if [ ! -f app/index.html ]; then printf '<!DOCTYPE html>%s\n<html>\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t\t<title></title>\n\t\t<link media=\"screen\" href=\"main.css\" rel=\"stylesheet\"/>\n\t</head>\n\t<body>\n\n\t\t<script src=\"main.js\" charset=\"utf-8\"></script>\n\t</body>\n</html>' >> app/index.html; fi && if [ ! -d app/scripts ]; then mkdir app/scripts; fi && if [ ! -f app/scripts/entry.js ]; then touch app/scripts/entry.js; fi && if [ ! -d app/scss ]; then mkdir app/scss; fi && if [ ! -f app/scss/main.scss ]; then touch app/scss/main.scss; fi && if [ ! -d app/assets ]; then mkdir app/assets; fi",
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "preinstall": "if ! command -v http-server; then npm install -g http-server; fi",
-    "postinstall": "echo '.sass-cache' >> .gitignore && echo 'dist/main.css.map' >> .gitignore && echo 'node_modules' >> .gitignore && npm start"
+    "postinstall": "if [ ! -f .gitignore ]; then echo '.sass-cache' >> .gitignore && echo 'dist/main.css.map' >> .gitignore && echo 'node_modules' >> .gitignore; fi && npm start"
   },
   "browserify": {
     "transform": [
