@@ -9,7 +9,7 @@
     "clean-css": "if [ -f 'dist/main.css' ]; then rm dist/main.css; fi && if [ -f 'dist/main.css.map' ]; then rm dist/main.css.map; fi",
     "clean-scripts": "if [ -f 'dist/main.js' ]; then rm dist/main.js; fi",
     "build-dist": "if [ ! -d dist ]; then mkdir dist; fi",
-    "build-test": "if [ ! -d test ]; then mkdir test; fi && if [ ! -f test/example.js ]; then touch test/example.js; fi",
+    "build-test": "if [ ! -d test ]; then mkdir test && touch test/setup.js && printf 'import {jsdom} from \"jsdom\";var exposedProperties = [\"window\", \"navigator\", \"document\"];global.document = jsdom(\"\");global.window = document.defaultView;Object.keys(document.defaultView).forEach((property) => {if (typeof global[property] === \"undefined\") { exposedProperties.push(property);global[property] = document.defaultView[property];}});global.navigator = {userAgent: \"node.js\"};' >> test/setup.js; fi && if [ ! -f test/example.js ]; then touch test/example.js; fi",
     "build-html": "npm run build-dist && npm run clean-html && if [ -f 'app/index.html' ]; then cp app/index.html dist/index.html; else echo you must have an index.html file; fi",
     "build-assets": "npm run build-dist && npm run clean-assets && if [ -d 'app/assets' ]; then cp -r app/assets dist; fi",
     "build-css": "npm run build-dist && npm run clean-css && if [ -f 'app/scss/main.scss' ]; then sass app/scss/main.scss:dist/main.css; else echo you must have a scss directory with a main.scss in your app to compile css; fi",
@@ -27,7 +27,7 @@
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "preinstall": "if ! command -v http-server; then npm install -g http-server; fi && if ! command -v mocha; then npm install -g mocha; fi",
     "postinstall": "echo '.sass-cache' >> .gitignore && echo 'dist/main.css.map' >> .gitignore && echo 'node_modules' >> .gitignore && npm start",
-    "test": "mocha --compilers js:babel-register test/**/*.js"
+    "test": "mocha --require test/setup.js --compilers js:babel-register test/**/*.js"
   },
   "browserify": {
     "transform": [
@@ -44,11 +44,16 @@
   "license": "MIT",
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.5",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
+    "jsdom": "^9.4.1",
     "onchange": "^2.5.0",
     "parallelshell": "^2.0.0",
+    "react-addons-test-utils": "^15.3.0",
     "watchify": "^3.7.0"
   },
   "dependencies": {}
