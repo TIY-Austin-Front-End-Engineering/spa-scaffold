@@ -7,7 +7,7 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
 - `dist` directory for deployable code
 - es2015 and babel, including module syntax
-- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and chai assertion libraries
+- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
 - sass (.scss)
 
 ## Installation
