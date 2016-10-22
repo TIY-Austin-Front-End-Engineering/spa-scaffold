@@ -1,0 +1,23 @@
+[
+	".gitignore",
+	{
+	  "app": [
+	    "index.html",
+			 {
+				 "scss": [
+			      "main.scss"
+			    ],
+			    "scripts": [
+			      "main.js"
+			    ],
+			    "assets": [{
+			      "fonts": [],
+			      "images": []
+			    }
+				]
+			}
+		],
+		"test": [],
+		"docs": []
+	}
+]
