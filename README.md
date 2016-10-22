@@ -5,9 +5,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - A bare bones scaffolding for an SPA, without any libraries built in
 - A static server for serving up your dev environment via http
 - `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
-- `dist` directory for deployable code
+- `docs` directory for deployable code via gh-pages
 - es2015 and babel, including module syntax
-- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
+- mocha test runner
 - sass (.scss)
 
 ## Installation
@@ -21,7 +21,6 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - `npm install` will scaffold your project AND start the dev server
 - `npm start` will start the dev server and watch for changes
 - `npm test` will run any test files included in the test folder
-- `npm run deploy` will push the content of `dist/` to gh-pages
 - When the server is running, your site will be live on [http://localhost:8080/](http://localhost:8080/)
 
 ## Dependencies
