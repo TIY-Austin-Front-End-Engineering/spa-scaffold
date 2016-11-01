@@ -15,7 +15,7 @@
     "build": "json-scaffold && npm run build-html && npm run build-assets && npm run build-css && npm run build-scripts",
     "watch-html": "onchange 'app/*.html' -- npm run build-html",
     "watch-sass": "sass --watch app/scss:docs",
-    "watch-scripts": "watchify app/scripts/main.js -d -v --outfile docs/main.js",
+    "watch-scripts": "watchify app/scripts/main.js -d -v --poll --outfile docs/main.js",
     "watch-assets": "onchange 'app/assets/**/*.*' -- npm run build-assets",
     "watch": "parallelshell 'npm run watch-html' 'npm run watch-assets' 'npm run watch-sass' 'npm run watch-scripts' 'npm run dev-server-watch'",
     "dev-server-start": "http-server ./docs",
